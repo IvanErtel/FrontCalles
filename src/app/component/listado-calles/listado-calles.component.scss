@@ -1,0 +1,65 @@
+table {
+    background-color: whitesmoke;
+    width: 100%;
+  }
+  table td, table th {
+    color: #1a1818c9;
+    border: 0.1px solid #ccc;
+    text-align: center;
+  }
+  .tittle{
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    color: white;
+  }
+  .container{
+    padding-top: 10px;
+    margin: 0 10%;
+  }
+  td, th{
+    width: 15%;
+  }
+  .mat-toolbar {
+    background-color: #0055a6;
+    color: #ffffff;
+  }
+  
+  button.mat-button,
+  button.mat-icon-button {
+    color: #ffffff;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .logo {
+    font-size: 24px;
+    margin-right: 8px;
+  }
+  
+  .name {
+    margin-right: 16px;
+  }
+  h2 {
+    color: white;
+    background-color: #203d58;
+    padding: 8px;
+    margin: 0;
+  }
+  
+  th.header-cell {
+    background-color: #203d58;
+    color: white;
+  }
+  
+  td input.input-cell {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px;
+  }
+  
+  td .clear-button {
+    padding: 0;
+  }
