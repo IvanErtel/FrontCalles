@@ -19,6 +19,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatSortModule} from '@angular/material/sort'; 
+import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatInputModule} from '@angular/material/input'; 
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatButtonToggleModule,
     MatMenuModule, 
-    FormsModule
+    FormsModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

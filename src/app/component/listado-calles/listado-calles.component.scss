@@ -7,38 +7,25 @@ table {
     border: 0.1px solid #ccc;
     text-align: center;
   }
-  .tittle{
-    background-color: #666;
-    padding: 30px;
-    text-align: center;
-    color: white;
-  }
   .container{
     padding-top: 10px;
     margin: 0 10%;
   }
-  td, th{
-    width: 15%;
-  }
-  .mat-toolbar {
-    background-color: #0055a6;
+  .mat-toolbar{
+    background-color: #203d58;
     color: #ffffff;
   }
-  
-  button.mat-button,
-  button.mat-icon-button {
+  .custom-menu-item:hover{
+    background-color: #203d58;
     color: #ffffff;
   }
-  
   .spacer {
     flex: 1 1 auto;
   }
-  
   .logo {
     font-size: 24px;
     margin-right: 8px;
   }
-  
   .name {
     margin-right: 16px;
   }
@@ -48,18 +35,16 @@ table {
     padding: 8px;
     margin: 0;
   }
-  
-  th.header-cell {
+  mat-paginator{
     background-color: #203d58;
-    color: white;
   }
-  
-  td input.input-cell {
+  table {
     width: 100%;
-    box-sizing: border-box;
-    padding: 4px;
   }
-  
-  td .clear-button {
-    padding: 0;
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  .icono{
+    padding: 5px;
   }

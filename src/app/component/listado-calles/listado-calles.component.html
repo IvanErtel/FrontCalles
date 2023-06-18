@@ -3,38 +3,43 @@
   <button mat-icon-button>
     <mat-icon>home</mat-icon>
   </button>
-  <button mat-button [matMenuTriggerFor]="menu1">Importador GCBA
+  
+  <button mat-button class="hoverable" [matMenuTriggerFor]="menu1">Importador GCBA
     <mat-icon class="arrow-icon">keyboard_arrow_down</mat-icon>
   </button>
-  <mat-menu #menu1="matMenu">
-    <button mat-menu-item>Subopción 1</button>
-    <button mat-menu-item>Subopción 2</button>
-    <button mat-menu-item>Subopción 3</button>
-  </mat-menu>
-  <button mat-button [matMenuTriggerFor]="menu2">Novedades Callejero
+  <mat-menu #menu1="matMenu" class="custom-menu">
+    <button mat-menu-item class="custom-menu-item">Subopción 1</button>
+    <button mat-menu-item class="custom-menu-item">Subopción 2</button>
+    <button mat-menu-item class="custom-menu-item">Subopción 3</button>
+  </mat-menu> 
+  
+  <button mat-button class="hoverable" [matMenuTriggerFor]="menu2">Novedades Callejero
     <mat-icon class="arrow-icon">keyboard_arrow_down</mat-icon>
   </button>
-  <mat-menu #menu2="matMenu">
-    <button mat-menu-item>Subopción 1</button>
-    <button mat-menu-item>Subopción 2</button>
-    <button mat-menu-item>Subopción 3</button>
+  <mat-menu #menu2="matMenu" class="custom-menu">
+    <button mat-menu-item class="custom-menu-item">Subopción 1</button>
+    <button mat-menu-item class="custom-menu-item">Subopción 2</button>
+    <button mat-menu-item class="custom-menu-item">Subopción 3</button>
   </mat-menu>
-  <button mat-button [matMenuTriggerFor]="menu3">Correspondencia GCBA
+  
+  <button mat-button class="hoverable" [matMenuTriggerFor]="menu3">Correspondencia GCBA
     <mat-icon class="arrow-icon">keyboard_arrow_down</mat-icon>
   </button>
-  <mat-menu #menu3="matMenu">
-    <button mat-menu-item>Subopción 1</button>
-    <button mat-menu-item>Subopción 2</button>
-    <button mat-menu-item>Subopción 3</button>
+  <mat-menu #menu3="matMenu" class="custom-menu">
+    <button mat-menu-item class="custom-menu-item">Subopción 1</button>
+    <button mat-menu-item class="custom-menu-item">Subopción 2</button>
+    <button mat-menu-item class="custom-menu-item">Subopción 3</button>
   </mat-menu>
-  <button mat-button [matMenuTriggerFor]="menu4">Consultas
+  
+  <button mat-button class="hoverable" [matMenuTriggerFor]="menu4">Consultas
     <mat-icon class="arrow-icon">keyboard_arrow_down</mat-icon>
   </button>
-  <mat-menu #menu4="matMenu">
-    <button mat-menu-item>Subopción 1</button>
-    <button mat-menu-item>Subopción 2</button>
-    <button mat-menu-item>Subopción 3</button>
+  <mat-menu #menu4="matMenu" class="custom-menu">
+    <button mat-menu-item class="custom-menu-item">Subopción 1</button>
+    <button mat-menu-item class="custom-menu-item">Subopción 2</button>
+    <button mat-menu-item class="custom-menu-item">Subopción 3</button>
   </mat-menu>
+  
   <span class="spacer"></span>
   <mat-icon class="logo">circle</mat-icon>
   <span class="name">Usuario "X" - I06584732</span>
@@ -42,34 +47,48 @@
 <!-- --------------FIN NAVBAR-------------- -->
 
 
+
 <div class="container">
   <h2>Título Random</h2>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
- 
-        <!-- Position Column -->
-        <ng-container matColumnDef="alturaHasta">
-          <th mat-header-cell *matHeaderCellDef> alturaHasta </th>
-          <td mat-cell *matCellDef="let element"> {{element.alturaHasta}} </td>
-        </ng-container>
-
+  <mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput placeholder="Buscar" (keyup)="applyFilter($event)" #input autocomplete="off">
+  </mat-form-field> 
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    
+    <!-- -----------------AGREGAMOS COLUMNAS Y ITERAMOS LOS ELEMENTOS QUE TENEMOS EN EL .TS----------------- -->
         <ng-container matColumnDef="nombreOficial">
-            <th mat-header-cell *matHeaderCellDef> nombreOficial </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> <p>Nombre Oficial </p>  </th>
             <td mat-cell *matCellDef="let element"> {{element.nombreOficial}} </td>
           </ng-container>
 
         <ng-container matColumnDef="alturaDesde">
-            <th mat-header-cell *matHeaderCellDef> alturaDesde </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> <p>Altura Desde</p></th>
             <td mat-cell *matCellDef="let element"> {{element.alturaDesde}} </td>
           </ng-container>
 
+          <ng-container matColumnDef="alturaHasta">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> <p>Altura Hasta</p></th>
+            <td mat-cell *matCellDef="let element"> {{element.alturaHasta}} </td>
+          </ng-container>
+
           <ng-container matColumnDef="observaciones">
-            <th mat-header-cell *matHeaderCellDef> observaciones </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> <p>Observaciones</p> </th>
             <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
           </ng-container>
 
           <ng-container matColumnDef="usuarioCambio">
-            <th mat-header-cell *matHeaderCellDef> usuarioCambio </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> <p>UsuarioCambio</p> </th>
             <td mat-cell *matCellDef="let element"> {{element.usuarioCambio}} </td>
+          </ng-container>
+
+          <!-- -----------------AGREGAMOS LOS ICONOS----------------- -->
+          <ng-container matColumnDef="buscar">
+            <th mat-header-cell *matHeaderCellDef> <p>Acciones</p> </th>
+            <td mat-cell *matCellDef="let element">
+              <mat-icon class="icono" aria-hidden="false" aria-label="Example home icon" fontIcon="edit">edit</mat-icon>
+              <mat-icon class="icono" aria-hidden="false" aria-label="Example home icon" fontIcon="home">search</mat-icon>
+            </td>
           </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
